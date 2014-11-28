@@ -1,0 +1,145 @@
+
+	body {
+		margin-top:0px;
+		margin-bottom:0px;
+		margin-left:0px;
+		margin-right:0px;
+		-khtml-user-select:read;
+		font-family: optima;
+		font-size: 11px;
+	}
+
+	#front { 
+		background-image: url("Default.png"); 
+		background-repeat: no-repeat; 
+		background-attachment: fixed; 
+		width: 	399px; 
+		height: 122px;
+		display:block;
+		}
+		
+	#back { 
+		background-image: url("images/backside.png"); 
+		background-repeat: no-repeat; 
+		background-attachment: fixed; 
+		width: 	399px; 
+		height: 122px;
+		display:none;
+		color:#FFFFFF;
+		}
+	
+	
+.flip {
+	position:absolute;
+	top: 90px;
+	left: 385px;
+	width:13px;
+	height:13px;
+}
+
+#flip {
+	opacity:0.45;
+	background: url(images/white_i.png) no-repeat top left;
+	z-index:8000;
+}
+
+#fliprollie {
+	display:none;
+	opacity:0.25;
+	background: url(images/white_rollie.png) no-repeat top left;
+	z-index:7999;
+
+}
+
+	#cover {
+		width:100px;
+		height:97px;
+		position:absolute;
+		top:18px;
+		left:16px;
+	}
+	
+	#grille {
+		position: absolute;
+		top: 49px;
+		left: 135px;
+		z-index:20;
+	}
+	
+	.lcd	
+	{
+		position: absolute;
+		top: 45px;
+		left: 132px;
+		width: 120px;
+		height: 50px;
+		padding: 5px;
+		color: white;
+	}
+	
+	#controls {
+	position: absolute;
+	top:33px;
+	left:278px;
+	height: 50px;
+	-apple-dashboard-region: dashboard-region(control rectangle 108x 178px 175px 21px);
+	}
+	
+	.button {
+	width:21px;
+	height: 21px;
+	}
+
+
+	a:hover.button { block:inline; background-color: #999; }
+	
+	#volume {
+	position: absolute;
+	top:19px;
+	left:250px;
+	}
+	
+	#playdiv {
+/*		border:1px solid green;*/
+		position:absolute;
+		top:2px;
+		left:2px;
+		width:30px; 
+		height:32px
+	}
+		
+	#pausediv {
+/*		border:1px solid blue;*/
+			position:absolute;
+			top:2px;
+			left:34px;
+			width:30px; 
+			height:32px
+	}		
+	
+	#stopdiv {
+/*		border:1px solid red;*/
+		position:absolute;
+		top:2px;
+		left:66px;
+		width:33px; 
+		height:32px
+	}
+		
+	#previousdiv {
+/*		border:1px solid white;*/
+		position:absolute;
+		top:35px;
+		left:15px;
+		width:33px; 
+		height:32px
+	}
+	
+	#nextdiv {
+/*		border:1px solid black;*/
+		position:absolute;
+		top:35px;
+		left:51px;
+		width:33px; 
+		height:32px
+	}

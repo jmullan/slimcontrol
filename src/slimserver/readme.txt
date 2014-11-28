@@ -1,0 +1,1 @@
+Place the SlimControl directory in your slimservers HTML/ directory.

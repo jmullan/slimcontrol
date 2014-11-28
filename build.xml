@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- build file for slimcontrol program -->
+<!-- Created by: Darren Tarbard &lt;&gt;  -->
+<project name="slimcontrol" default="dmg" basedir=".">
+	<property name="src" value="./src"/>
+	<property name="widget" value="./src/"/>
+	<target name="deploy">
+		<copy todir="${user.home}/Library/Widgets/SlimControl.wdgt" overwrite="true">
+			<fileset dir="${widget}"/>
+		</copy>
+	</target>
+	<target name="clean" description="Removes previous build">
+		<delete verbose="true" file="build/SlimControl.dmg"/>
+	</target>
+	<target name="dmg" depends="clean">
+		<exec executable="hdiutil">
+			<arg line="create -srcfolder ${widget} build/SlimControl.dmg"/>
+		</exec>
+	</target>
+</project>

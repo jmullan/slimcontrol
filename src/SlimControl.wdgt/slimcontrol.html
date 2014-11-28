@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<!--
+
+  File:    SlimControl - slimcontrol.html
+  Description: Remote Control for SlimServer and Squeezebox
+  Version: 0.3 GNU GPL release
+  Date: 2007-03-03
+        
+  Authors:    Harald Walker, Darren Tarbard
+
+  Copyright:   © Copyright 2005 Harald Walker, 2007 Darren Tarbard
+          
+  Contact & Information: Harald Walker http://www.bitwalker.nl, Darren Tarbard http://www.tarbard.co.uk
+					
+  
+  
+  License:
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  
+-->
+<head>
+	<title>SlimControl</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<style type="text/css">@import url(style.css);</style>
+	<script src="slimcontrol.js" type="text/javascript" language="javascript1.3" />
+</head>
+<body onload="window.setTimeout('init()',1000);">
+<div id="front" onmousemove="mousemove(event);" onmouseout="mouseexit(event);">
+	<img id="cover" /><br/>
+	<img id="grille" src="screen_grille.png" /><br/>
+
+<div class="lcd" align="center">
+	<span id="d1">no</span><br/>
+	<span id="d2">song</span><br/>
+	<span id="d3">playing</span><br/>
+ <input id="position" type="range" min="0" value="" max="100" oninput="changePosition(this.value)" style="width:141px;visibility:hidden" />
+</div>
+<div id="controls">
+
+<div id="playdiv" onclick="sendSlimControl('?p0=play')">
+	&nbsp;
+</div>
+
+<div  id="pausediv" onclick="sendSlimControl('?p0=pause')">
+	&nbsp;
+</div>
+
+<div  id="stopdiv" onclick="sendSlimControl('?p0=stop')">
+	&nbsp;
+</div>
+
+<div  id="previousdiv" onclick="sendSlimControl('?p0=playlist&p1=jump&p2=-1')">
+	&nbsp;
+	</div>
+
+	<div  id="nextdiv"  onclick="sendSlimControl('?p0=playlist&p1=jump&p2=%2B1')">
+	&nbsp;
+</div>
+</div>
+<div id="volume">
+	<input style="position:absolute;left: 27px; top:2px;width:100px" id="volumeslider" type="range" min="0" value="" max="100" oninput="changeVolume(this.value)" /></div>
+<div class='flip' id='fliprollie'></div>
+<div class='flip' id='flip' onclick='showBack();' onmouseover='enterflip(event);' onmouseout='exitflip(event);'></div>
+</div>
+<div id="back">
+
+	<div style="position: absolute;left:35px;top:10px">Server address and port:<br/>
+		<input id="server" name="server" type="text" style="width:100px" value="" />
+		<input id="port" name="port" type="text" style="width:40px" value="9000"/>&nbsp;<input type="button" value="Check" style="width:100px;height:20px" onclick="checkServer()" />
+		<br/>
+	</div>
+
+	<div style="position: absolute;left:35px;top:45px">Player: 
+		<span id="serverStatus" style="color:red;block:none">&nbsp;</span>
+		<select id="player" name="player" title="Player" onchange="player_id = this.value" style="position: absolute;left:135px;top:0px"></select>
+	</div>
+
+	<div style="position: absolute;left:35px;top:65px">CSRF Security cauth:<br/>
+		<input id="cauth" name="cauth" type="text" style="width:245px" value="" />
+	</div>
+
+	<img  style="position: absolute;left:315px;top:75px" src="images/done.png" title="done" alt="" border="0" onclick='showFront();'/>
+	<div class="logo" style="position: absolute;left:35px;top:18px"</div>
+</div>
+</body>
+</html>
